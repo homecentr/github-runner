@@ -1,0 +1,15 @@
+collections:
+  - name: oasis_roles.system
+  - name: community.docker
+    version: 3.4.3
+  - name: community.crypto
+    version: 2.5.0
+  - name: community.sops
+    version: 1.6.0
+  - name: https://github.com/homecentr/ansible-collection-system
+    type: git
+    version: feat/v1
+
+roles:
+  - name: geerlingguy.docker
+  - name: geerlingguy.pip

@@ -1,0 +1,15 @@
+{
+  "name": "@homecentr/github-runner",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:homecentr/github-runner.git",
+  "author": "LH <me@lholota.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "install": "ansible-galaxy install -r requirements.yml",
+    "lint": "ANSIBLE_CONFIG=\"./ansible.cfg\" ansible-lint --strict",
+    "init": "ANSIBLE_CONFIG=\"./ansible.cfg\" ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i inventory.yml ./playbooks/github-runner.yml",
+    "apply": "ANSIBLE_CONFIG=\"./ansible.cfg\" ansible-playbook -i inventory.yml ./playbooks/github-runner.yml"
+  }
+}
