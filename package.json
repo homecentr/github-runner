@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "install": "ansible-galaxy install -r requirements.yml --force",
+    "install": "ansible-galaxy install -r requirements.yml",
     "lint": "ANSIBLE_CONFIG=\"./ansible.cfg\" ansible-lint --strict",
     "init": "ANSIBLE_CONFIG=\"./ansible.cfg\" ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i inventory.yml ./playbooks/github-runner.yml",
     "apply": "ANSIBLE_CONFIG=\"./ansible.cfg\" ansible-playbook -i inventory.yml ./playbooks/github-runner.yml"

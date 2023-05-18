@@ -28,7 +28,7 @@
         name: homecentr.system.ssh
 
     - name: Install Docker
-      include_role:
+      ansible.builtin.include_role:
         name: geerlingguy.docker
 
     - name: Install pip
