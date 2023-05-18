@@ -1,0 +1,14 @@
+version: '3.9'
+services:
+{% for i in range(github_runner_instance_count) %}
+  runner{{ i + 1 }}:
+    image: homecentr/github-runner:{{ github_runner_image_tag }}
+    restart: unless-stopped
+    user: "github-runner:{{ docker_gid }}"
+    environment:
+      GH_OWNER: homecentr
+      GH_TOKEN: {{ github_runner_token }}
+      RUNNER_NAME: "Homecenter-Runner-{{ i + 1 }}"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+{% endfor %}
