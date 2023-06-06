@@ -5,10 +5,21 @@ services:
     image: homecentr/github-runner:{{ github_runner_image_tag }}
     restart: unless-stopped
     user: "github-runner:{{ docker_gid }}"
+    # entrypoint: bash
+    # command: "-l -c 'sleep infinity'"
+    networks:
+      default:
     environment:
       GH_OWNER: homecentr
       GH_TOKEN: {{ github_runner_token }}
       RUNNER_NAME: "Homecenter-Runner-{{ i + 1 }}"
+      HOST_NAME: {{ ansible_hostname }}
+      HOST_IP: {{ ansible_host }}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+    extra_hosts:
+    - "host.docker.internal:host-gateway"
 {% endfor %}
+
+networks:
+  default:

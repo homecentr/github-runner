@@ -53,4 +53,5 @@
       community.docker.docker_compose:
         project_name: github-runner
         definition: "{{ lookup('template', 'docker-compose.yml.j2') | from_yaml }}"
+        recreate: always
         state: present
